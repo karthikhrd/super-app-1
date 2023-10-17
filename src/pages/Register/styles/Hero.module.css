@@ -1,0 +1,22 @@
+.hero {
+  flex: 1;
+  height: 100%;
+  position: relative;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.heroContent {
+  padding: 40px;
+  position: absolute;
+  bottom: 60px;
+}
+
+.heroText {
+  position: relative;
+  z-index: 10;
+}
