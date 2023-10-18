@@ -1,6 +1,6 @@
-import styles from "./styles/Hero.module.css";
-import { Text, Image } from "../../components/ui/index.js";
 import heroImage from "../../assets/super-app-register-hero.png";
+import { Image, Text } from "../../components/ui/index.js";
+import styles from "./styles/Hero.module.css";
 
 export default function Hero() {
   return (
@@ -10,7 +10,7 @@ export default function Hero() {
       </div>
 
       <div className={styles.heroContent}>
-        <Text step={9} weight="700" className={styles.heroText}>
+        <Text step={9} weight="700">
           Discover new things on Superapp
         </Text>
       </div>

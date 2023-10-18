@@ -4,7 +4,7 @@ import styles from "./styles/Title.module.css";
 
 export default function Title() {
   return (
-    <div className={styles.title}>
+    <div className={styles.formTitle}>
       <img src={logo} alt="logo" />
       <Text step={4}>Create your new account</Text>
     </div>

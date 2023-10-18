@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../../constants";
-import { Button, Input, Text } from "../../components/ui/index.js";
 import styles from "./styles/Form.module.css";
+import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants";
+import { Button, Input, Text } from "../../components/ui/index.js";
 import { useInputValidation } from "./useInputValidation.js";
 import {
   contactValidation,
@@ -9,10 +9,11 @@ import {
   nameValidation,
   userNameValidation,
 } from "../../utils/inputValidation";
+import toast from "react-hot-toast";
 
 export default function Form() {
   const [isChecked, setIsChecked] = useState(false);
-  const [didSubmit, setDidSubmit] = useState(false);
+  const [formDidSubmit, setFormDidSubmit] = useState(false);
 
   const {
     input: nameInput,
@@ -69,7 +70,7 @@ export default function Form() {
     handleContactIsTouched();
 
     if (!formIsValid || !isChecked) {
-      setDidSubmit(true);
+      setFormDidSubmit(true);
       return;
     }
 
@@ -82,12 +83,16 @@ export default function Form() {
 
     localStorage.setItem("user", JSON.stringify(user));
 
+    toast.success("You are signed in!", {
+      duration: 4000,
+    });
+
     resetName();
     resetUsername();
     resetEmail();
     resetContact();
     setIsChecked(false);
-    setDidSubmit(false);
+    setFormDidSubmit(false);
   };
 
   return (
@@ -137,22 +142,21 @@ export default function Form() {
               checked={isChecked}
               onChange={(e) => setIsChecked(e.target.checked)}
             />
-
-            <label className={styles.label} htmlFor="terms-conditions">
-              <Text className={styles.text} color={SECONDARY_COLOR}>
-                Share my registration data with Superapp
+            <label htmlFor="terms-conditions">
+              <Text color={SECONDARY_COLOR}>
+                Share my registration data with Superapp.
               </Text>
             </label>
           </div>
 
-          {formIsValid && !isChecked && didSubmit && (
+          {formIsValid && !isChecked && formDidSubmit && (
             <Text step={2} color="rgb(255, 115, 115)">
-              Check this box to accept terms and conditions
+              Check this box to accept our terms and conditions.
             </Text>
           )}
         </div>
 
-        <Button text="Submit" />
+        <Button text="Sign up" />
       </form>
     </div>
   );

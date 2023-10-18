@@ -1,10 +1,10 @@
 export const nameValidation = (name) => {
-  const regex = new RegExp("^[A-Za-z]{2,}$");
+  const regex = new RegExp("^[a-zA-Z ]{2,}$");
   return regex.test(name);
 };
 
 export const emailValidation = (email) => {
-  const regex = new RegExp("^[a-z]+@[a-z]+\\.[a-z]{2,3}$");
+  const regex = new RegExp("^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}$");
   return regex.test(email);
 };
 

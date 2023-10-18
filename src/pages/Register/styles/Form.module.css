@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .formInputs {
@@ -13,14 +13,10 @@
 .checkboxContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .checkbox {
   display: flex;
   gap: 1rem;
-}
-
-.text {
-  padding-left: 30px;
 }

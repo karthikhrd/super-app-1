@@ -15,10 +15,12 @@
   font-weight: 700;
   text-align: center;
   padding: 16px 14px 18px;
-  color: inherit;
-  background-color: #15883e;
+  color: #fff;
+  background-color: #5fc061;
   height: 48px;
-  :hover {
-    background-color: #1db954;
-  }
+}
+
+.button:hover {
+  background-color: #72DB73;
+  color: #fff;
 }
