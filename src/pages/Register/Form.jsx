@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./styles/Form.module.css";
-import { PRIMARY_COLOR, NEUTRAL_COLOR, ERROR_COLOR } from "../../constants";
-import { Button, Input, Text } from "../../components/ui/index.js";
 import { useInputValidation } from "./useInputValidation.js";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import FormCheckbox from "../../components/form/FormCheckbox";
+import FormInput from "../../components/form/FormInput";
+import { Button } from "../../components/ui/index.js";
 import {
   contactValidation,
   emailValidation,
   nameValidation,
   userNameValidation,
 } from "../../utils/inputValidation";
-import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 
 export default function Form() {
-  const [isChecked, setIsChecked] = useState(false);
   const [formDidSubmit, setFormDidSubmit] = useState(false);
 
   const navigate = useNavigate();
@@ -65,6 +65,9 @@ export default function Form() {
     formIsValid = true;
   }
 
+  const checkboxRef = useRef();
+  const checkboxValidator = formIsValid && formDidSubmit;
+
   const handleSubmit = (event) => {
     event.preventDefault();
     handleNameIsTouched();
@@ -72,7 +75,7 @@ export default function Form() {
     handleEmailIsTouched();
     handleContactIsTouched();
 
-    if (!formIsValid || !isChecked) {
+    if (!formIsValid || !checkboxRef.current.isChecked) {
       setFormDidSubmit(true);
       return;
     }
@@ -94,7 +97,7 @@ export default function Form() {
     resetUsername();
     resetEmail();
     resetContact();
-    setIsChecked(false);
+    checkboxRef.current.setIsChecked(false);
     setFormDidSubmit(false);
   };
 
@@ -102,7 +105,7 @@ export default function Form() {
     <div>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formInputs}>
-          <Input
+          <FormInput
             placeholder="Name"
             value={nameInput}
             onChange={handleNameInputChange}
@@ -110,7 +113,7 @@ export default function Form() {
             isInvalid={isInvalidName}
             invalidMessage="Name cannot be empty."
           />
-          <Input
+          <FormInput
             placeholder="Username"
             value={usernameInput}
             onChange={handleUsernameInputChange}
@@ -118,7 +121,7 @@ export default function Form() {
             isInvalid={isInvalidUsername}
             invalidMessage="Please enter a valid username"
           />
-          <Input
+          <FormInput
             placeholder="Email"
             value={emailInput}
             onChange={handleEmailInputChange}
@@ -126,7 +129,7 @@ export default function Form() {
             isInvalid={isInvalidEmail}
             invalidMessage="Please enter a valid email"
           />
-          <Input
+          <FormInput
             placeholder="Mobile"
             value={contactInput}
             onChange={handleContactInputChange}
@@ -135,30 +138,7 @@ export default function Form() {
             invalidMessage="Please enter a valid mobile number"
           />
         </div>
-
-        <div className={styles.checkboxContainer}>
-          <div className={styles.checkbox}>
-            <input
-              type="checkbox"
-              style={{ accentColor: PRIMARY_COLOR }}
-              id="terms-conditions"
-              checked={isChecked}
-              onChange={(e) => setIsChecked(e.target.checked)}
-            />
-            <label htmlFor="terms-conditions">
-              <Text color={NEUTRAL_COLOR}>
-                Share my registration data with Superapp.
-              </Text>
-            </label>
-          </div>
-
-          {formIsValid && !isChecked && formDidSubmit && (
-            <Text step={2} color={ERROR_COLOR}>
-              Check this box to accept our terms and conditions.
-            </Text>
-          )}
-        </div>
-
+        <FormCheckbox ref={checkboxRef} checkboxValidator={checkboxValidator} />
         <Button>Sign up</Button>
       </form>
     </div>

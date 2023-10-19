@@ -1,5 +1,5 @@
-import Text from "./Text";
-import styles from "./styles/Input.module.css";
+import Text from "../ui/Text";
+import styles from './styles/FormInput.module.css'
 
 export default function Input({
   type = "text",
