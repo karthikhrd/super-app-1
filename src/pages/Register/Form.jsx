@@ -10,10 +10,13 @@ import {
   userNameValidation,
 } from "../../utils/inputValidation";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function Form() {
   const [isChecked, setIsChecked] = useState(false);
   const [formDidSubmit, setFormDidSubmit] = useState(false);
+
+  const navigate = useNavigate();
 
   const {
     input: nameInput,
@@ -73,6 +76,8 @@ export default function Form() {
       setFormDidSubmit(true);
       return;
     }
+
+    navigate("/select-category");
 
     const user = {
       name: nameInput,
@@ -156,7 +161,7 @@ export default function Form() {
           )}
         </div>
 
-        <Button text="Sign up" />
+        <Button>Sign up</Button>
       </form>
     </div>
   );

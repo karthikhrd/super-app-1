@@ -21,6 +21,18 @@
 }
 
 .button:hover {
-  background-color: #72DB73;
-  color: #fff;
+  background-color: #72db73;
+}
+
+.secondary:hover {
+  background-color: #18a009;
+}
+
+.secondary {
+  background-color: #148a08;
+}
+
+.button:disabled{
+  background-color: #5f5f5f;
+  cursor: not-allowed;
 }
