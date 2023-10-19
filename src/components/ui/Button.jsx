@@ -4,13 +4,19 @@ export default function Button({
   children = "button",
   variant = "primary",
   disabled = false,
+  onClick,
+  icon,
 }) {
-  const buttonVariant =
-    variant === "secondary" ? styles.secondary : styles.primary;
+  const buttonVariant = styles[variant];
 
   return (
-    <button className={`${styles.button} ${buttonVariant}`} disabled={disabled}>
+    <button
+      onClick={onClick}
+      className={`${styles.button} ${buttonVariant}`}
+      disabled={disabled}
+    >
       {children}
+      {icon && <div className={styles.icon}>{icon}</div>}
     </button>
   );
 }

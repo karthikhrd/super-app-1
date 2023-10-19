@@ -3,8 +3,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --primary-color: #72DB73;
-  --secondary-text: #7C7C7C
+  --primary: #72db73;
+  --primary-focus: #6cf36e;
+  --secondary: #148a08;
+  --secondary-focus: #18a009;
+  --neutral: #7c7c7c;
+  --error: #ff7373;
+  --error-focus: #ff8585;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -23,7 +28,6 @@
   box-sizing: border-box;
 }
 
-a{
+a {
   text-decoration: none;
 }
-

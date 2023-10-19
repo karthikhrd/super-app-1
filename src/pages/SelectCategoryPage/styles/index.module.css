@@ -6,6 +6,7 @@
 .main {
   display: flex;
   justify-content: space-between;
+  height: 90%;
   gap: 4rem;
 }
 
@@ -16,7 +17,14 @@
   flex-direction: column;
 }
 
-.nextButton{
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 680px;
+  gap: 1rem;
+}
+
+.nextButton {
   float: right;
   margin-top: 2rem;
 }

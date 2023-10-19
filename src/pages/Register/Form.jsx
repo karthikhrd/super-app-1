@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./styles/Form.module.css";
-import { PRIMARY_COLOR, SECONDARY_COLOR } from "../../constants";
+import { PRIMARY_COLOR, NEUTRAL_COLOR, ERROR_COLOR } from "../../constants";
 import { Button, Input, Text } from "../../components/ui/index.js";
 import { useInputValidation } from "./useInputValidation.js";
 import {
@@ -77,16 +77,14 @@ export default function Form() {
       return;
     }
 
-    navigate("/select-category");
-
     const user = {
       name: nameInput,
       username: usernameInput,
       email: emailInput,
       contact: contactInput,
     };
-
     localStorage.setItem("user", JSON.stringify(user));
+    navigate("/select-category");
 
     toast.success("You are signed in!", {
       duration: 4000,
@@ -148,14 +146,14 @@ export default function Form() {
               onChange={(e) => setIsChecked(e.target.checked)}
             />
             <label htmlFor="terms-conditions">
-              <Text color={SECONDARY_COLOR}>
+              <Text color={NEUTRAL_COLOR}>
                 Share my registration data with Superapp.
               </Text>
             </label>
           </div>
 
           {formIsValid && !isChecked && formDidSubmit && (
-            <Text step={2} color="rgb(255, 115, 115)">
+            <Text step={2} color={ERROR_COLOR}>
               Check this box to accept our terms and conditions.
             </Text>
           )}
