@@ -5,7 +5,6 @@ import Category from "./Category";
 import PageTitle from "./PageTitle";
 import SelectedCategories from "./SelectedCategories";
 import styles from "./styles/index.module.css";
-import { redirect } from "react-router-dom";
 
 export default function SelectCategoryPage() {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -55,11 +54,3 @@ export default function SelectCategoryPage() {
     </div>
   );
 }
-
-export const loader = () => {
-  const user = localStorage.getItem("user");
-  if (!user) {
-    return redirect("/register");
-  }
-  return null;
-};

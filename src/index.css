@@ -8,6 +8,7 @@
   --secondary: #148a08;
   --secondary-focus: #18a009;
   --neutral: #7c7c7c;
+  --neutral-focus: #393939;
   --error: #ff7373;
   --error-focus: #ff8585;
 
@@ -31,3 +32,4 @@
 a {
   text-decoration: none;
 }
+

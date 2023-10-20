@@ -7,14 +7,15 @@ import FormCheckbox from "../../components/form/FormCheckbox";
 import FormInput from "../../components/form/FormInput";
 import { Button } from "../../components/ui/index.js";
 import {
-  contactValidation,
-  emailValidation,
-  nameValidation,
-  userNameValidation,
+  contactIsValid,
+  emailIsValid,
+  nameIsValid,
+  usernameIsValid,
 } from "../../utils/inputValidation";
 
 export default function Form() {
   const [formDidSubmit, setFormDidSubmit] = useState(false);
+  const checkboxRef = useRef();
 
   const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ export default function Form() {
     enteredInputIsValid: enteredNameIsValid,
     isInvalidInput: isInvalidName,
     reset: resetName,
-  } = useInputValidation((value) => nameValidation(value));
+  } = useInputValidation((value) => nameIsValid(value));
 
   const {
     input: usernameInput,
@@ -34,7 +35,7 @@ export default function Form() {
     enteredInputIsValid: enteredUsernameIsValid,
     isInvalidInput: isInvalidUsername,
     reset: resetUsername,
-  } = useInputValidation((value) => userNameValidation(value));
+  } = useInputValidation((value) => usernameIsValid(value));
 
   const {
     input: emailInput,
@@ -43,7 +44,7 @@ export default function Form() {
     enteredInputIsValid: enteredEmailIsValid,
     isInvalidInput: isInvalidEmail,
     reset: resetEmail,
-  } = useInputValidation((value) => emailValidation(value));
+  } = useInputValidation((value) => emailIsValid(value));
 
   const {
     input: contactInput,
@@ -52,7 +53,7 @@ export default function Form() {
     enteredInputIsValid: enteredContactIsValid,
     isInvalidInput: isInvalidContact,
     reset: resetContact,
-  } = useInputValidation((value) => contactValidation(value));
+  } = useInputValidation((value) => contactIsValid(value));
 
   let formIsValid = false;
 
@@ -65,10 +66,7 @@ export default function Form() {
     formIsValid = true;
   }
 
-  const checkboxRef = useRef();
-  const checkboxValidator = formIsValid && formDidSubmit;
-
-  const handleSubmit = (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
     handleNameIsTouched();
     handleUsernameIsTouched();
@@ -87,11 +85,12 @@ export default function Form() {
       contact: contactInput,
     };
     localStorage.setItem("user", JSON.stringify(user));
-    navigate("/select-category");
 
     toast.success("You are signed in!", {
       duration: 4000,
     });
+
+    navigate("/select-category");
 
     resetName();
     resetUsername();
@@ -101,9 +100,11 @@ export default function Form() {
     setFormDidSubmit(false);
   };
 
+  const isValidFormSubmitted = formIsValid && formDidSubmit;
+
   return (
     <div>
-      <form onSubmit={handleSubmit} className={styles.form}>
+      <form onSubmit={handleFormSubmit} className={styles.form}>
         <div className={styles.formInputs}>
           <FormInput
             placeholder="Name"
@@ -138,7 +139,10 @@ export default function Form() {
             invalidMessage="Please enter a valid mobile number"
           />
         </div>
-        <FormCheckbox ref={checkboxRef} checkboxValidator={checkboxValidator} />
+        <FormCheckbox
+          ref={checkboxRef}
+          isValidFormSubmitted={isValidFormSubmitted}
+        />
         <Button>Sign up</Button>
       </form>
     </div>

@@ -30,7 +30,7 @@ const FormCheckbox = forwardRef(function FormCheckbox(props, ref) {
         </label>
       </div>
 
-      {props.checkboxValidator && !isChecked && (
+      {props.isValidFormSubmitted && !isChecked && (
         <Text step={2} color={ERROR_COLOR}>
           Check this box to accept our terms and conditions.
         </Text>

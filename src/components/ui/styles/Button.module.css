@@ -1,7 +1,6 @@
 .button {
   /* display: inline-block; */
   outline: none;
-  cursor: pointer;
   font-size: 14px;
   line-height: 1;
   border-radius: 500px;
@@ -21,6 +20,10 @@
   justify-content: center;
   color: #ffffff;
   gap: 0.75rem;
+}
+
+.withIcon {
+  justify-content: space-between;
 }
 
 .primary {
@@ -47,4 +50,12 @@
 .icon {
   display: flex;
   transform: translateY(-1px);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--neutral-focus);
+}
+
+.icon:hover {
+  color: var(--error);
 }

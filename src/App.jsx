@@ -3,9 +3,8 @@ import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import RegisterPage from "./pages/Register/index.jsx";
 import HomePage from "./pages/Home/index.jsx";
-import SelectCategoryPage, {
-  loader as selectPageLoader,
-} from "./pages/SelectCategoryPage";
+import SelectCategoryPage from "./pages/SelectCategory/index.element";
+import { loader as selectPageLoader } from "./pages/SelectCategory/index.loader";
 
 const router = createBrowserRouter([
   {

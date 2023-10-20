@@ -13,9 +13,9 @@ export default function SelectedCategories({
         {selectedCategories.map((category) => (
           <Button
             variant="secondary"
-            onClick={() => removeCategory(category)}
+            onIconClick={() => removeCategory(category)}
             key={category.id}
-            icon={<X size={16} strokeWidth={4} color="#393939" />}
+            icon={<X size={16} strokeWidth={4}/>}
           >
             {category.name}
           </Button>
