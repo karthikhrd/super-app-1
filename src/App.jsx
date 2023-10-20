@@ -2,9 +2,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/ErrorPage";
 import RegisterPage from "./pages/Register/index.jsx";
-import HomePage from "./pages/Home/index.jsx";
+import HomePage from "./pages/Home/index.element.jsx";
 import SelectCategoryPage from "./pages/SelectCategory/index.element";
 import { loader as selectPageLoader } from "./pages/SelectCategory/index.loader";
+import { loader as homePageLoader } from "./pages/Home/index.loader";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     element: <RootLayout />,
     children: [
-      { index: true, element: <HomePage /> },
+      { index: true, element: <HomePage />, loader: homePageLoader },
       {
         path: "register",
         element: <RegisterPage />,

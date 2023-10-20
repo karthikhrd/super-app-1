@@ -19,9 +19,9 @@ export default function Button({
     >
       {children}
       {icon && (
-        <button onClick={onIconClick} className={styles.icon}>
+        <div onClick={onIconClick} className={styles.icon}>
           {icon}
-        </button>
+        </div>
       )}
     </button>
   );

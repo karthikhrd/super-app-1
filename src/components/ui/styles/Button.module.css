@@ -8,22 +8,25 @@
   transition-duration: 0.3s;
   border: 1px solid transparent;
   letter-spacing: 2px;
-  min-width: 160px;
+  width: 100%;
+  min-width: 10rem;
   text-transform: uppercase;
   white-space: normal;
   font-weight: 700;
   text-align: center;
-  padding: 16px 20px;
-  height: 48px;
+  padding: 1rem 1.2rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
   gap: 0.75rem;
+  cursor: pointer;
 }
 
 .withIcon {
   justify-content: space-between;
+  cursor: default;
 }
 
 .primary {
@@ -42,6 +45,11 @@
   background-color: var(--secondary-focus);
 }
 
+.soft {
+  background-color: #ffffff7a;
+  cursor: default;
+}
+
 .button:disabled {
   background-color: var(--neutral);
   cursor: not-allowed;
@@ -50,8 +58,6 @@
 .icon {
   display: flex;
   transform: translateY(-1px);
-  background-color: transparent;
-  border: none;
   cursor: pointer;
   color: var(--neutral-focus);
 }

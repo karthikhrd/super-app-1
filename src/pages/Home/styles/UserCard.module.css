@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  background: rgb(96, 33, 255);
+  background: linear-gradient(
+    122deg,
+    rgba(96, 33, 255, 1) 47%,
+    rgba(241, 212, 252, 1) 100%
+  );
+  padding: 2rem 3rem;
+  max-width: fit-content;
+  gap: 2.5rem;
+  align-items: center;
+  border-radius: 2rem;
+  height: 55vh;
+}
+
+.banner {
+  height: 100%;
+}

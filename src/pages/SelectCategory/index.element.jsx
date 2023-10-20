@@ -5,9 +5,13 @@ import Category from "./Category";
 import PageTitle from "./PageTitle";
 import SelectedCategories from "./SelectedCategories";
 import styles from "./styles/index.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SelectCategoryPage() {
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const canProceed = selectedCategories.length > 2;
+
+  const navigate = useNavigate();
 
   localStorage.setItem(
     "selectedCategories",
@@ -22,6 +26,13 @@ export default function SelectCategoryPage() {
     setSelectedCategories(
       selectedCategories.filter((c) => c.id !== category.id)
     );
+  };
+
+  const handleProceed = () => {
+    if (!canProceed) {
+      return;
+    }
+    navigate("/");
   };
 
   return (
@@ -46,8 +57,8 @@ export default function SelectCategoryPage() {
           ))}
         </div>
       </div>
-      <div className={styles.nextButton}>
-        <Button variant="secondary" disabled={selectedCategories.length < 3}>
+      <div onClick={handleProceed} className={styles.nextButton}>
+        <Button variant="secondary" disabled={!canProceed}>
           Next
         </Button>
       </div>

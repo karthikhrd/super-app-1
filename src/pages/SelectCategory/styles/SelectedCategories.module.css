@@ -1,17 +1,6 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
 .categories {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-}
-
-.buttonContent {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin-bottom: 2rem;
 }

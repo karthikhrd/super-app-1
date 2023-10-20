@@ -8,17 +8,18 @@ export default function SelectedCategories({
   removeCategory,
 }) {
   return (
-    <div className={styles.container}>
+    <div>
       <div className={styles.categories}>
         {selectedCategories.map((category) => (
-          <Button
-            variant="secondary"
-            onIconClick={() => removeCategory(category)}
-            key={category.id}
-            icon={<X size={16} strokeWidth={4}/>}
-          >
-            {category.name}
-          </Button>
+          <div key={category.id}>
+            <Button
+              variant="secondary"
+              onIconClick={() => removeCategory(category)}
+              icon={<X size={16} strokeWidth={4} />}
+            >
+              {category.name}
+            </Button>
+          </div>
         ))}
       </div>
       {selectedCategories.length < 3 && (
