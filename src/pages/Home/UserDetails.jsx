@@ -12,11 +12,13 @@ export default function UserDetails() {
       <div className={styles.info}>
         <Text step={7}>{user.name}</Text>
         <Text step={7}>{user.email}</Text>
-        <Text step={9} weight="500">{user.username}</Text>
+        <Text step={9} weight="500">
+          {user.username}
+        </Text>
       </div>
       <div className={styles.categories}>
         {selectedCategories.map((category) => (
-          <div className={styles.category} key={category}>
+          <div key={category.id} className={styles.category}>
             <Button variant="soft">{category.name}</Button>
           </div>
         ))}

@@ -1,4 +1,14 @@
 .container {
-  padding: 4rem 6rem;
+  padding: 3rem 8%;
   height: 100vh;
+  display: flex;
+  gap: 5%;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  height: 100%;
+  width: 60%;
 }

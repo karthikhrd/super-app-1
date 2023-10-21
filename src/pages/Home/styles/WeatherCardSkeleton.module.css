@@ -1,0 +1,21 @@
+.container {
+  border-radius: 1rem;
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+  flex: 1;
+  overflow: hidden;
+}
+
+.now {
+  animation: pulse 1s ease infinite alternate;
+  height: 25%;
+}
+
+@keyframes pulse {
+  from {
+    background-color: rgb(40, 40, 40);
+  }
+  to {
+    background-color: rgb(71, 71, 71);
+  }
+}

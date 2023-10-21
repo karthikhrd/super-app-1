@@ -6,114 +6,47 @@ export default function Text({
   weight = "400",
   color = "inherit",
 }) {
+  let stepStyle;
+
   switch (step) {
     case 1:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepOne}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepOne;
+      break;
     case 2:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepTwo}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepTwo;
+      break;
     case 3:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepThree}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepThree;
+      break;
     case 4:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepFour}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepFour;
+      break;
     case 5:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepFive}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepFive;
+      break;
     case 6:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepSix}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepSix;
+      break;
     case 7:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepSeven}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepSeven;
+      break;
     case 8:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepEight}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepEight;
+      break;
     case 9:
-      return (
-        <p
-          style={{
-            fontWeight: weight,
-            color: color,
-          }}
-          className={styles.stepNine}
-        >
-          {children}
-        </p>
-      );
+      stepStyle = styles.stepNine;
+      break;
   }
+
+  return (
+    <p
+      style={{
+        fontWeight: weight,
+        color: color,
+      }}
+      className={stepStyle}
+    >
+      {children}
+    </p>
+  );
 }
