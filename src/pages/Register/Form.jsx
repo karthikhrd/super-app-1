@@ -88,7 +88,7 @@ export default function Form() {
     toast.success("You are signed in!", {
       duration: 4000,
     });
-    
+
     navigate("/select-category");
 
     resetName();

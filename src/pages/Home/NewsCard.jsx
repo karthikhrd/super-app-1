@@ -4,7 +4,6 @@ import { formatDateString } from "../../utils/formatDateString";
 import styles from "./styles/NewsCard.module.css";
 
 export default function NewsCard({ news }) {
-  console.log(news);
   const publishedTime = formatDateString(news.publishedAt);
 
   return (

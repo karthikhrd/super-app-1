@@ -6,8 +6,6 @@ import styles from "./styles/FallbackError.module.css";
 export default function WeatherError() {
   const error = useAsyncError();
 
-  console.log(error);
-
   return (
     <div className={styles.error}>
       <Text step={4} color={ERROR_COLOR}>

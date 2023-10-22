@@ -7,6 +7,7 @@ export default function Button({
   onClick,
   onIconClick,
   icon,
+  inLineStyles,
 }) {
   const buttonVariant = styles[variant];
   const buttonWithIcon = icon ? styles.withIcon : "";
@@ -16,6 +17,7 @@ export default function Button({
       onClick={onClick}
       className={`${styles.button} ${buttonVariant} ${buttonWithIcon}`}
       disabled={disabled}
+      style={{ ...inLineStyles }}
     >
       {children}
       {icon && (

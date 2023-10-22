@@ -40,8 +40,6 @@ const fetchNews = async () => {
     }`
   );
 
-  console.log(response);
-
   //just to show loading skeleton
   await new Promise((resolve) => {
     setTimeout(resolve, 1000);
