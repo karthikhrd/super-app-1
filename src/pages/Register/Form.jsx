@@ -16,7 +16,6 @@ import {
 export default function Form() {
   const [formDidSubmit, setFormDidSubmit] = useState(false);
   const checkboxRef = useRef();
-
   const navigate = useNavigate();
 
   const {
@@ -89,7 +88,7 @@ export default function Form() {
     toast.success("You are signed in!", {
       duration: 4000,
     });
-
+    
     navigate("/select-category");
 
     resetName();

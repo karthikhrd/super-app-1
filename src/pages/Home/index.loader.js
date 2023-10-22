@@ -1,17 +1,10 @@
-import toast from "react-hot-toast";
 import { defer, redirect } from "react-router-dom";
 
 export const loader = async () => {
   const user = localStorage.getItem("user");
-  const selectedCategories = JSON.parse(
-    localStorage.getItem("selectedCategories")
-  );
 
   if (!user) {
     return redirect("/register");
-  } else if (!selectedCategories || selectedCategories.length < 3) {
-    toast.error("Select at least three categories before proceeding");
-    return redirect("/select-category");
   }
 
   return defer({
@@ -22,34 +15,47 @@ export const loader = async () => {
 
 const fetchWeather = async () => {
   let response = await fetch(
-    "http://api.weatherapi.com/v1/current.json?q=pune&key=8d54d569b46a4d04ac8171732232110"
+    `http://api.weatherapi.com/v1/current.json?q=wani&key=${
+      import.meta.env.VITE_WEATHER_API_KEY
+    }`
   );
 
+  //just to show loading skeleton
   await new Promise((resolve) => {
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, 1000);
   });
+
+  if (!response.ok) {
+    throw new Error("Could not fetch weather");
+  }
 
   let data = await response.json();
   return data;
 };
 
 const fetchNews = async () => {
-  let headersList = {
-    Authorization: "9edc507f04014491957bba3d4e8af7b9",
-  };
-
   let response = await fetch(
-    "https://newsapi.org/v2/everything?q=wild&pageSize=1",
-    {
-      method: "GET",
-      headers: headersList,
-    }
+    `https://newsapi.org/v2/top-headlines?country=in&apiKey=${
+      import.meta.env.VITE_NEWS_API_KEY
+    }`
   );
 
+  console.log(response);
+
+  //just to show loading skeleton
   await new Promise((resolve) => {
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, 1000);
   });
 
+  if (response.status == 429) {
+    throw new Error("Too many requests");
+  }
+
+  if (!response.ok) {
+    throw new Error("Could not fetch news");
+  }
+
   let data = await response.json();
+
   return data.articles;
 };

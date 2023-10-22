@@ -6,7 +6,7 @@
     rgba(241, 212, 252, 1) 100%
   );
   display: flex;
-  padding: 2rem;
+  padding: 2rem 4rem;
   align-items: center;
   gap: 10%;
   border-radius: 1rem;

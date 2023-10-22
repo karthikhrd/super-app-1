@@ -4,9 +4,7 @@ import styles from "./styles/WeatherCard.module.css";
 import Divider from "../../components/ui/Divider";
 
 export default function WeatherCard({ weather }) {
-  console.log(weather);
   const timeArr = weather.location.localtime.split(" ");
-  console.log(timeArr);
 
   return (
     <div className={styles.container}>
@@ -32,7 +30,7 @@ export default function WeatherCard({ weather }) {
           </Text>
           <div className={styles.pressure}>
             <Thermometer size={32} />
-            <div className="">
+            <div>
               <Text>{weather.current.pressure_mb} mbar</Text>
               <Text>Pressure</Text>
             </div>
@@ -42,14 +40,14 @@ export default function WeatherCard({ weather }) {
         <div className={styles.air}>
           <div className={styles.wind}>
             <Wind size={32} />
-            <div className="">
+            <div>
               <Text>{weather.current.wind_kph} km/h</Text>
               <Text>Wind</Text>
             </div>
           </div>
           <div className={styles.humidity}>
             <Droplets size={32} />
-            <div className="">
+            <div>
               <Text>{weather.current.humidity}%</Text>
               <Text>Humidity</Text>
             </div>

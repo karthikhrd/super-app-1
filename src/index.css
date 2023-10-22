@@ -3,6 +3,7 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --primary-text: rgba(255, 255, 255, 0.87);
   --primary: #72db73;
   --primary-focus: #6cf36e;
   --secondary: #148a08;
@@ -13,7 +14,7 @@
   --error-focus: #ff8585;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--primary-text);
   background-color: #000000;
 
   font-synthesis: none;
@@ -25,6 +26,7 @@
 
 a {
   text-decoration: none;
+  color: var(--primary-text);
 }
 
 /* ===== Scrollbar CSS ===== */

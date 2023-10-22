@@ -1,5 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { emailIsValid } from "../inputValidation";
+import { emailIsValid, nameIsValid, usernameIsValid } from "../inputValidation";
+
+describe("name validation", () => {
+  it("should return false if empty", () => {
+    expect(nameIsValid("")).toBe(false);
+  });
+  it("should return false if only spaces", () => {
+    expect(nameIsValid(" ")).toBe(false);
+  });
+  it("should return false if contain special characters", () => {
+    expect(nameIsValid("Yash@ hsa")).toBe(false);
+  });
+});
 
 describe("emailIsValid", () => {
   it("should return true if email is valid", () => {
@@ -44,5 +56,23 @@ describe("emailIsValid", () => {
 
   it("should return false if email is not a string", () => {
     expect(emailIsValid(123)).toBe(false);
+  });
+});
+
+describe.only("username is valid", () => {
+  it("should return true if username is valid", () => {
+    expect(usernameIsValid("yash")).toBe(true);
+  });
+  it("should return false if username is empty", () => {
+    expect(usernameIsValid("")).toBe(false);
+  });
+  it("should return false if username contains only underscore", () => {
+    expect(usernameIsValid("____")).toBe(false);
+  });
+  it("should return false if username contains only numbers", () => {
+    expect(usernameIsValid("1234")).toBe(false);
+  });
+  it("should return false if username contains special characters", () => {
+    expect(usernameIsValid("yash@ hsa")).toBe(false);
   });
 });

@@ -1,4 +1,4 @@
-export const formatDate = (dateString) => {
+export const formatDateString = (dateString) => {
   return {
     date:
       dateString.substr(8, 2) +

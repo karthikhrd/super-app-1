@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import { Image, Text } from "../../components/ui";
-import { formatDate } from "../../utils/formatDate";
+import { formatDateString } from "../../utils/formatDateString";
 import styles from "./styles/NewsCard.module.css";
 
 export default function NewsCard({ news }) {
-  console.log(news)
-  const publishedTime = formatDate("2023-09-26T13:00:00Z");
+  console.log(news);
+  const publishedTime = formatDateString(news.publishedAt);
 
   return (
     <div className={styles.container}>
@@ -13,7 +14,11 @@ export default function NewsCard({ news }) {
           <Image src={news.urlToImage} alt={news.title} />
         </div>
         <div className={styles.info}>
-          <Text step={6} weight="500">{news.title}</Text>
+          <Text step={6} weight="500">
+            <Link to={news.url} reloadDocument>
+              {news.title}
+            </Link>
+          </Text>
           <Text step={2}>
             {publishedTime.date} | {publishedTime.time}
           </Text>
