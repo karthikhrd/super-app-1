@@ -9,10 +9,10 @@ export default function WeatherCard({ weather }) {
   return (
     <div className={styles.container}>
       <div className={styles.now}>
-        <Text step={7} weight="500">
+        <Text step={4} weight="500">
           {timeArr[0]}
         </Text>
-        <Text step={7} weight="500">
+        <Text step={4} weight="500">
           {timeArr[1]}
         </Text>
       </div>
@@ -25,31 +25,31 @@ export default function WeatherCard({ weather }) {
         </div>
         <Divider />
         <div className={styles.temperature}>
-          <Text step={9} weight="500">
+          <Text step={7} weight="500">
             {weather.current.temp_c}°C
           </Text>
           <div className={styles.pressure}>
-            <Thermometer size={32} />
+            <Thermometer size={24} />
             <div>
-              <Text>{weather.current.pressure_mb} mbar</Text>
-              <Text>Pressure</Text>
+              <Text weight="500">{weather.current.pressure_mb} mbar</Text>
+              <Text step={2}>Pressure</Text>
             </div>
           </div>
         </div>
         <Divider />
         <div className={styles.air}>
           <div className={styles.wind}>
-            <Wind size={32} />
+            <Wind />
             <div>
-              <Text>{weather.current.wind_kph} km/h</Text>
-              <Text>Wind</Text>
+              <Text weight="500">{weather.current.wind_kph} km/h</Text>
+              <Text step={2}>Wind</Text>
             </div>
           </div>
           <div className={styles.humidity}>
-            <Droplets size={32} />
+            <Droplets />
             <div>
-              <Text>{weather.current.humidity}%</Text>
-              <Text>Humidity</Text>
+              <Text weight="500">{weather.current.humidity}%</Text>
+              <Text step={2}>Humidity</Text>
             </div>
           </div>
         </div>

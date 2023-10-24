@@ -12,10 +12,11 @@
   --neutral-focus: #393939;
   --error: #ff7373;
   --error-focus: #ff8585;
+  --dark-text: rgba(0, 0, 0, 0.975);
 
   color-scheme: light dark;
   color: var(--primary-text);
-  background-color: #000000;
+  background-color: #000000eb;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

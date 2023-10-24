@@ -1,14 +1,26 @@
 .container {
-  padding: 3rem 8%;
+  padding: 2rem 5%;
   height: 100vh;
   display: flex;
-  gap: 5%;
+  gap: 2vw;
 }
 
-.group {
+.leftGroup {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  height: 100%;
-  width: 60%;
+  width: 66%;
+}
+
+.topComponents {
+  display: flex;
+  gap: 2vw;
+  height: 60%; /*TODO height of components*/
+}
+
+.userAndWeather {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  gap: 1.5rem;
 }

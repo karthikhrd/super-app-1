@@ -1,30 +1,23 @@
-.button {
+.badge {
   outline: none;
-  font-size: 14px;
-  line-height: 1;
   border-radius: 500px;
   transition-property: background-color, border-color, color, box-shadow, filter;
   transition-duration: 0.3s;
   border: 1px solid transparent;
-  letter-spacing: 2px;
   width: 100%;
-  min-width: 10rem;
-  text-transform: uppercase;
   white-space: normal;
-  font-weight: 700;
-  text-align: center;
-  padding: 1rem 1.2rem;
-  height: 3rem;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
-  gap: 0.75rem;
+  color: #fff;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .withIcon {
   justify-content: space-between;
+  gap: 0.75rem;
   cursor: default;
 }
 
@@ -32,34 +25,13 @@
   background-color: var(--primary);
 }
 
-.primary:hover {
-  background-color: var(--primary-focus);
-}
-
 .secondary {
   background-color: var(--secondary);
-}
-
-.secondary:hover {
-  background-color: var(--secondary-focus);
-}
-
-.error {
-  background-color: var(--error);
-}
-
-.error:hover {
-  background-color: var(--error-focus);
 }
 
 .soft {
   background-color: #ffffff7a;
   cursor: default;
-}
-
-.button:disabled {
-  background-color: var(--neutral);
-  cursor: not-allowed;
 }
 
 .icon {
@@ -69,6 +41,14 @@
   color: var(--neutral-focus);
 }
 
-.icon:hover {
-  color: var(--error);
+.sizeOne {
+  font-size: 12px;
+  letter-spacing: 0.0025em;
+  line-height: 16px;
+}
+
+.sizeTwo {
+  font-size: 14px;
+  letter-spacing: 0em;
+  line-height: 20px;
 }

@@ -5,12 +5,17 @@ import styles from "./styles/NewsCard.module.css";
 
 export default function NewsCard({ news }) {
   const publishedTime = formatDateString(news.publishedAt);
+  console.log(news);
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.image}>
-          <Image src={news.urlToImage} alt={news.title} />
+          <Image
+            src={news.urlToImage}
+            fallbackImage="https://rezista.in/wp-content/uploads/2020/07/Image-Placeholder-Dark.png"
+            alt={news.title}
+          />
         </div>
         <div className={styles.info}>
           <Text step={6} weight="500">

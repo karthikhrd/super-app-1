@@ -34,7 +34,7 @@
     rgba(220, 220, 220, 1) 0%,
     rgba(255, 255, 255, 1) 100%
   );
-  color: rgba(0, 0, 0, 0.911);
+  color: var(--dark-text);
   overflow-y: auto;
 }
 

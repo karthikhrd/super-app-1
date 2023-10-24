@@ -3,7 +3,7 @@ import { Text } from "../../components/ui";
 import { ERROR_COLOR } from "../../constants";
 import styles from "./styles/FallbackError.module.css";
 
-export default function WeatherError() {
+export default function FallbackError() {
   const error = useAsyncError();
 
   return (
