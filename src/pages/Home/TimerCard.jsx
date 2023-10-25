@@ -68,8 +68,8 @@ export default function TimerCard() {
     let timer;
 
     if (isCounting && count == 0) {
-      setIsRinging(true);
       setIsCounting(false);
+      setIsRinging(true);
       play();
     }
     if (isRinging) {
@@ -103,3 +103,4 @@ export default function TimerCard() {
     </div>
   );
 }
+

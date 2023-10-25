@@ -1,15 +1,16 @@
-import { Await, useLoaderData } from "react-router-dom";
-import NewsCard from "./NewsCard";
-import UserCard from "./UserCard";
-import WeatherCard from "./WeatherCard";
-import styles from "./styles/index.module.css";
 import { Suspense } from "react";
+import { Await, useLoaderData } from "react-router-dom";
+import { Button } from "../../components/ui";
+import NewsCard from "./NewsCard";
+import NewsCardFallback from "./NewsCardFallback";
 import NewsCardSkeleton from "./NewsCardSkeleton";
-import WeatherCardSkeleton from "./WeatherCardSkeleton";
-import FallbackError from "./FallbackError";
 import NotesCard from "./NotesCard";
 import TimerCard from "./TimerCard";
-import { Button } from "../../components/ui";
+import UserCard from "./UserCard";
+import WeatherCard from "./WeatherCard";
+import WeatherCardFallback from "./WeatherCardFallback";
+import WeatherCardSkeleton from "./WeatherCardSkeleton";
+import styles from "./styles/index.module.css";
 
 export default function HomePage() {
   const { news, weather } = useLoaderData();
@@ -23,7 +24,7 @@ export default function HomePage() {
             <TimerCard />
           </div>
           <Suspense fallback={<NewsCardSkeleton />}>
-            <Await resolve={news} errorElement={<FallbackError />}>
+            <Await resolve={news} errorElement={<NewsCardFallback />}>
               {(resolvedNews) => <NewsCard news={resolvedNews[0]} />}
             </Await>
           </Suspense>
@@ -43,7 +44,7 @@ const TopComponents = ({ weather }) => {
       <div className={styles.userAndWeather}>
         <UserCard />
         <Suspense fallback={<WeatherCardSkeleton />}>
-          <Await resolve={weather} errorElement={<FallbackError />}>
+          <Await resolve={weather} errorElement={<WeatherCardFallback />}>
             {(resolvedWeather) => <WeatherCard weather={resolvedWeather} />}
           </Await>
         </Suspense>

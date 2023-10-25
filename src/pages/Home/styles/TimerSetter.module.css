@@ -6,32 +6,6 @@
   max-width: 50%;
 }
 
-.timer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 0.5rem;
-}
-
-.setter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.heading {
-  display: flex;
-  justify-content: space-between;
-}
-
-.rotate {
-  transform: rotate(180deg);
-}
-
-.icon {
-  display: flex;
-}
-
 .timerButton {
   background: none;
   color: inherit;
@@ -48,4 +22,10 @@
 
 .timerButton:disabled {
   cursor: not-allowed;
+}
+
+table,
+th,
+td {
+  text-align: center;
 }

@@ -20,33 +20,22 @@ export default function TimerSetter({
 
   return (
     <div className={styles.container}>
-      <Headings />
-      <Counter>
-        <Hours
-          time={time}
-          dispatch={dispatch}
-          isCounting={isCounting}
-          isRinging={isRinging}
-        />
-        <Text step={7} weight="500">
-          :
-        </Text>
-        <Minutes
-          time={time}
-          dispatch={dispatch}
-          isCounting={isCounting}
-          isRinging={isRinging}
-        />
-        <Text step={7} weight="500">
-          :
-        </Text>
-        <Seconds
-          time={time}
-          dispatch={dispatch}
-          isCounting={isCounting}
-          isRinging={isRinging}
-        />
-      </Counter>
+      <table>
+        <tbody>
+          <Headings />
+          <Incremnters
+            isCounting={isCounting}
+            isRinging={isRinging}
+            dispatch={dispatch}
+          />
+          <Numbers time={time} />
+          <Decremnters
+            isCounting={isCounting}
+            isRinging={isRinging}
+            dispatch={dispatch}
+          />
+        </tbody>
+      </table>
       <Button disabled={isRinging} onClick={toggleCountDown} variant="error">
         {isCounting ? "Stop" : "Start"}
       </Button>
@@ -56,125 +45,162 @@ export default function TimerSetter({
 
 const Headings = () => {
   return (
-    <div className={styles.heading}>
-      <Text step={4} color={NEUTRAL_COLOR} weight="500">
-        Hours
-      </Text>
-      <Text step={4} color={NEUTRAL_COLOR} weight="500">
-        Minutes
-      </Text>
-      <Text step={4} color={NEUTRAL_COLOR} weight="500">
-        Seconds
-      </Text>
-    </div>
+    <tr>
+      <th>
+        <Text step={4} color={NEUTRAL_COLOR} weight="500">
+          Hours
+        </Text>
+      </th>
+      <th></th>
+      <th>
+        <Text step={4} color={NEUTRAL_COLOR} weight="500">
+          Minutes
+        </Text>
+      </th>
+      <th></th>
+      <th>
+        <Text step={4} color={NEUTRAL_COLOR} weight="500">
+          Seconds
+        </Text>
+      </th>
+    </tr>
   );
 };
 
-const Counter = ({ children }) => {
-  return <div className={styles.timer}>{children}</div>;
-};
-
-const Hours = ({ time, dispatch, isCounting, isRinging }) => {
+const Incremnters = ({ isCounting, isRinging, dispatch }) => {
   return (
-    <div className={styles.setter}>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "incrementHours" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          rotate={2}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-      <Text step={7}>{time.hours}</Text>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "decrementHours" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-    </div>
+    <tr>
+      <td>
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "incrementHours" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            rotate={2}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+      <td></td>
+      <td>
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "incrementMinutes" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            rotate={2}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+      <td></td>
+      <td>
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "incrementSeconds" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            rotate={2}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+    </tr>
   );
 };
 
-const Minutes = ({ time, dispatch, isCounting, isRinging }) => {
+const Numbers = ({ time }) => {
   return (
-    <div className={styles.setter}>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "incrementMinutes" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          rotate={2}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-      <Text step={7}>{time.minutes}</Text>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "decrementMinutes" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-    </div>
+    <tr>
+      <td>
+        <Text step={7}>{time.hours}</Text>
+      </td>
+      <td>
+        <Text step={7} weight="500">
+          :
+        </Text>
+      </td>
+      <td>
+        <Text step={7}>{time.minutes}</Text>
+      </td>
+      <td>
+        <Text step={7} weight="500">
+          :
+        </Text>
+      </td>
+      <td>
+        <Text step={7}>{time.seconds}</Text>
+      </td>
+    </tr>
   );
 };
 
-const Seconds = ({ time, dispatch, isCounting, isRinging }) => {
+const Decremnters = ({ isCounting, isRinging, dispatch }) => {
   return (
-    <div className={styles.setter}>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "incrementSeconds" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          rotate={2}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-      <Text step={7}>{time.seconds}</Text>
-      <button
-        disabled={isCounting || isRinging}
-        className={styles.timerButton}
-        onClick={() => dispatch({ type: "decrementSeconds" })}
-      >
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          color={NEUTRAL_COLOR}
-        />
-      </button>
-    </div>
+    <tr>
+      <td>
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "decrementHours" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+      <td></td>
+      <td>
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "decrementMinutes" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+      <td></td>
+      <td>
+        {" "}
+        <button
+          disabled={isCounting || isRinging}
+          className={styles.timerButton}
+          onClick={() => dispatch({ type: "decrementSeconds" })}
+        >
+          <Icon
+            icon="octicon:triangle-down-24"
+            style={{
+              fontSize: "2.5rem",
+            }}
+            color={NEUTRAL_COLOR}
+          />
+        </button>
+      </td>
+    </tr>
   );
 };

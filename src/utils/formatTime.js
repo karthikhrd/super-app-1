@@ -1,3 +1,4 @@
+// Converts seconds to an object {hours: string = "00", minutes: string = "00", seconds: string = "00"}
 export function formatTime(count) {
   const hours = Math.floor(count / 3600);
   const minutes = Math.floor((count % 3600) / 60);
