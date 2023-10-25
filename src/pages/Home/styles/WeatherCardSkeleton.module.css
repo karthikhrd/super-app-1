@@ -1,8 +1,8 @@
 .container {
+  flex: 2;
   border-radius: 1rem;
   width: 100%;
   background-color: rgb(20, 20, 20);
-  flex: 1;
   overflow: hidden;
   display: flex;
   flex-direction: column;

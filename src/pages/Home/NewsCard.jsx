@@ -5,7 +5,6 @@ import styles from "./styles/NewsCard.module.css";
 
 export default function NewsCard({ news }) {
   const publishedTime = formatDateString(news.publishedAt);
-  console.log(news);
 
   return (
     <div className={styles.container}>

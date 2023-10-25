@@ -1,19 +1,46 @@
 import { Circle } from "rc-progress";
+import { Image, Text } from "../../components/ui";
 import styles from "./styles/Timer.module.css";
-import { Text } from "../../components/ui";
+import PropTypes from "prop-types";
+import bellGif from "../../assets/bell-gif.gif";
 
-export default function Timer() {
+export default function Timer({
+  count,
+  countRef,
+  time,
+  isCounting,
+  isRinging,
+}) {
+  const percent =
+    count == 0
+      ? 0
+      : 100 - ((countRef.current - count) / countRef.current) * 100;
+
   return (
     <div className={styles.timer}>
       <Circle
-        percent={75}
+        percent={isRinging ? 0 : isCounting ? percent : 100}
         strokeWidth={4}
         strokeColor="#FF6A6A"
         trailColor="transparent"
       />
       <div className={styles.time}>
-        <Text step={7} weight="500">00:00:00</Text>
+        {isRinging ? (
+          <Image src={bellGif} />
+        ) : (
+          <Text step={7} weight="500">
+            {time.hours}:{time.minutes}:{time.seconds}
+          </Text>
+        )}
       </div>
     </div>
   );
 }
+
+Timer.propTypes = {
+  count: PropTypes.number.isRequired,
+  countRef: PropTypes.object.isRequired,
+  time: PropTypes.object.isRequired,
+  isCounting: PropTypes.bool.isRequired,
+  isRinging: PropTypes.bool.isRequired,
+};

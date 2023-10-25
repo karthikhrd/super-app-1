@@ -1,6 +1,10 @@
 .container {
-  padding: 2rem 5%;
+  padding: 0.5rem 5%;
   height: 100vh;
+}
+
+.main {
+  height: 90vh;
   display: flex;
   gap: 2vw;
 }
@@ -21,6 +25,12 @@
 .userAndWeather {
   display: flex;
   flex-direction: column;
-  flex: 2;
-  gap: 1.5rem;
+  justify-content: space-between; /*TODO align */
+  flex: 5;
+  gap: 1rem;
+}
+
+.browseButton {
+  float: right;
+  margin: 0.5rem 0;
 }

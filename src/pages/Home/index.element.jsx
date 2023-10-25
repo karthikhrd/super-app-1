@@ -9,31 +9,46 @@ import WeatherCardSkeleton from "./WeatherCardSkeleton";
 import FallbackError from "./FallbackError";
 import NotesCard from "./NotesCard";
 import TimerCard from "./TimerCard";
+import { Button } from "../../components/ui";
 
 export default function HomePage() {
   const { news, weather } = useLoaderData();
 
   return (
-    <div className={styles.container}>
-      <div className={styles.leftGroup}>
-        <div className={styles.topComponents}>
-          <div className={styles.userAndWeather}>
-            <UserCard />
-            <Suspense fallback={<WeatherCardSkeleton />}>
-              <Await resolve={weather} errorElement={<FallbackError />}>
-                {(resolvedWeather) => <WeatherCard weather={resolvedWeather} />}
-              </Await>
-            </Suspense>
+    <>
+      <div className={styles.container}>
+        <main className={styles.main}>
+          <div className={styles.leftGroup}>
+            <TopComponents weather={weather} />
+            <TimerCard />
           </div>
-          <NotesCard />
+          <Suspense fallback={<NewsCardSkeleton />}>
+            <Await resolve={news} errorElement={<FallbackError />}>
+              {(resolvedNews) => <NewsCard news={resolvedNews[0]} />}
+            </Await>
+          </Suspense>
+        </main>
+
+        <div className={styles.browseButton}>
+          <Button variant="secondary">Browse</Button>
         </div>
-        <TimerCard />
       </div>
-      <Suspense fallback={<NewsCardSkeleton />}>
-        <Await resolve={news} errorElement={<FallbackError />}>
-          {(resolvedNews) => <NewsCard news={resolvedNews[0]} />}
-        </Await>
-      </Suspense>
-    </div>
+    </>
   );
 }
+
+const TopComponents = ({ weather }) => {
+  return (
+    <div className={styles.topComponents}>
+      <div className={styles.userAndWeather}>
+        <UserCard />
+        <Suspense fallback={<WeatherCardSkeleton />}>
+          <Await resolve={weather} errorElement={<FallbackError />}>
+            {(resolvedWeather) => <WeatherCard weather={resolvedWeather} />}
+          </Await>
+        </Suspense>
+      </div>
+      <NotesCard />
+    </div>
+  );
+};

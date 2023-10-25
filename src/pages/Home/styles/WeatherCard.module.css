@@ -1,4 +1,9 @@
 .container {
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   background: rgb(16, 23, 68);
   background: linear-gradient(
     135deg,
@@ -6,12 +11,9 @@
     rgba(39, 57, 199, 1) 52%,
     rgb(231, 195, 255) 100%
   );
-  overflow: hidden;
-  border-radius: 1rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  flex: 2;
 }
+
 
 .now {
   background: rgb(255, 74, 222);
@@ -21,9 +23,10 @@
     rgba(255, 154, 244, 1) 65%,
     rgba(231, 195, 255, 1) 100%
   );
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   display: flex;
   justify-content: space-between;
+  /* flex: 2; */
 }
 
 .weather {
@@ -32,6 +35,7 @@
   padding: 1rem;
   justify-content: space-around;
   align-items: center;
+  flex: 1;
 }
 
 .state {

@@ -3,12 +3,53 @@ import { Button, Text } from "../../components/ui";
 import { NEUTRAL_COLOR } from "../../constants";
 import styles from "./styles/TimerSetter.module.css";
 
-export default function TimerSetter() {
+export default function TimerSetter({
+  isCounting,
+  isRinging,
+  setIsCounting,
+  dispatch,
+  time,
+}) {
+  const toggleCountDown = () => {
+    if (isCounting) {
+      dispatch({ type: "reset" });
+    } else {
+      setIsCounting(true);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Headings />
-      <Counter />
-      <Button variant="error">Pause</Button>
+      <Counter>
+        <Hours
+          time={time}
+          dispatch={dispatch}
+          isCounting={isCounting}
+          isRinging={isRinging}
+        />
+        <Text step={7} weight="500">
+          :
+        </Text>
+        <Minutes
+          time={time}
+          dispatch={dispatch}
+          isCounting={isCounting}
+          isRinging={isRinging}
+        />
+        <Text step={7} weight="500">
+          :
+        </Text>
+        <Seconds
+          time={time}
+          dispatch={dispatch}
+          isCounting={isCounting}
+          isRinging={isRinging}
+        />
+      </Counter>
+      <Button disabled={isRinging} onClick={toggleCountDown} variant="error">
+        {isCounting ? "Stop" : "Start"}
+      </Button>
     </div>
   );
 }
@@ -29,10 +70,18 @@ const Headings = () => {
   );
 };
 
-const Counter = () => {
+const Counter = ({ children }) => {
+  return <div className={styles.timer}>{children}</div>;
+};
+
+const Hours = ({ time, dispatch, isCounting, isRinging }) => {
   return (
-    <div className={styles.timer}>
-      <div className={`${styles.hour} ${styles.setter}`}>
+    <div className={styles.setter}>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "incrementHours" })}
+      >
         <Icon
           icon="octicon:triangle-down-24"
           style={{
@@ -41,7 +90,13 @@ const Counter = () => {
           rotate={2}
           color={NEUTRAL_COLOR}
         />
-        <Text step={7}>00</Text>
+      </button>
+      <Text step={7}>{time.hours}</Text>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "decrementHours" })}
+      >
         <Icon
           icon="octicon:triangle-down-24"
           style={{
@@ -49,32 +104,19 @@ const Counter = () => {
           }}
           color={NEUTRAL_COLOR}
         />
-      </div>
-      <Text step={7} weight="500">
-        :
-      </Text>
-      <div className={`${styles.minute} ${styles.setter}`}>
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          rotate={2}
-          color={NEUTRAL_COLOR}
-        />
-        <Text step={7}>00</Text>
-        <Icon
-          icon="octicon:triangle-down-24"
-          style={{
-            fontSize: "2.5rem",
-          }}
-          color={NEUTRAL_COLOR}
-        />
-      </div>
-      <Text step={7} weight="500">
-        :
-      </Text>
-      <div className={`${styles.seconds} ${styles.setter}`}>
+      </button>
+    </div>
+  );
+};
+
+const Minutes = ({ time, dispatch, isCounting, isRinging }) => {
+  return (
+    <div className={styles.setter}>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "incrementMinutes" })}
+      >
         <Icon
           icon="octicon:triangle-down-24"
           style={{
@@ -83,7 +125,13 @@ const Counter = () => {
           rotate={2}
           color={NEUTRAL_COLOR}
         />
-        <Text step={7}>00</Text>
+      </button>
+      <Text step={7}>{time.minutes}</Text>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "decrementMinutes" })}
+      >
         <Icon
           icon="octicon:triangle-down-24"
           style={{
@@ -91,7 +139,42 @@ const Counter = () => {
           }}
           color={NEUTRAL_COLOR}
         />
-      </div>
+      </button>
+    </div>
+  );
+};
+
+const Seconds = ({ time, dispatch, isCounting, isRinging }) => {
+  return (
+    <div className={styles.setter}>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "incrementSeconds" })}
+      >
+        <Icon
+          icon="octicon:triangle-down-24"
+          style={{
+            fontSize: "2.5rem",
+          }}
+          rotate={2}
+          color={NEUTRAL_COLOR}
+        />
+      </button>
+      <Text step={7}>{time.seconds}</Text>
+      <button
+        disabled={isCounting || isRinging}
+        className={styles.timerButton}
+        onClick={() => dispatch({ type: "decrementSeconds" })}
+      >
+        <Icon
+          icon="octicon:triangle-down-24"
+          style={{
+            fontSize: "2.5rem",
+          }}
+          color={NEUTRAL_COLOR}
+        />
+      </button>
     </div>
   );
 };
