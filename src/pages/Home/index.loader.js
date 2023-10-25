@@ -15,7 +15,7 @@ export const loader = async () => {
 
 const fetchWeather = async () => {
   let response = await fetch(
-    `http://api.weatherapi.com/v1/current.json?q=wani&key=${
+    `http://cors-anywhere.herokuapp.com/http://api.weatherapi.com/v1/current.json?q=wani&key=${
       import.meta.env.VITE_WEATHER_API_KEY
     }`
   );
@@ -35,7 +35,7 @@ const fetchWeather = async () => {
 
 const fetchNews = async () => {
   let response = await fetch(
-    `https://newsapi.org/v2/top-headlines?q=technology&apiKey=${
+    `http://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?q=technology&apiKey=${
       import.meta.env.VITE_NEWS_API_KEY
     }`
   );
