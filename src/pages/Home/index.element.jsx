@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Await, useLoaderData } from "react-router-dom";
+import { Await, useLoaderData, useNavigate } from "react-router-dom";
 import { Button } from "../../components/ui";
 import NewsCard from "./NewsCard";
 import NewsCardFallback from "./NewsCardFallback";
@@ -14,6 +14,7 @@ import styles from "./styles/index.module.css";
 
 export default function HomePage() {
   const { news, weather } = useLoaderData();
+  const navigate = useNavigate()
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function HomePage() {
         </main>
 
         <div className={styles.browseButton}>
-          <Button variant="secondary">Browse</Button>
+          <Button onClick={() => navigate('entertainment')} variant="secondary">Browse</Button>
         </div>
       </div>
     </>

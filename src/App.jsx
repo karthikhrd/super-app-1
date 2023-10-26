@@ -6,6 +6,8 @@ import HomePage from "./pages/Home/index.element.jsx";
 import SelectCategoryPage from "./pages/SelectCategory/index.element";
 import { loader as selectPageLoader } from "./pages/SelectCategory/index.loader";
 import { loader as homePageLoader } from "./pages/Home/index.loader";
+import EntertainmentPage from "./pages/Entertainment/index.element";
+import { loader as entertainmentPageLoader } from "./pages/Entertainment/index.loader";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,11 @@ const router = createBrowserRouter([
         path: "select-category",
         element: <SelectCategoryPage />,
         loader: selectPageLoader,
+      },
+      {
+        path: "entertainment",
+        element: <EntertainmentPage />,
+        loader: entertainmentPageLoader,
       },
     ],
   },

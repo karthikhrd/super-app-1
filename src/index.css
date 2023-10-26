@@ -12,7 +12,7 @@
   --neutral-focus: #393939;
   --error: #ff7373;
   --error-focus: #ff8585;
-  --dark-text: rgba(0, 0, 0, 0.975);
+  --dark-text: rgba(0, 0, 0, 0.95);
 
   color-scheme: light dark;
   color: var(--primary-text);
@@ -34,8 +34,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ===== Scrollbar CSS ===== */
-/* Firefox */
 * {
   scrollbar-width: 10px;
   scrollbar-color: #00000022 #ffffff00;
@@ -44,7 +42,6 @@ a:hover {
   box-sizing: border-box;
 }
 
-/* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 12px;
 }
@@ -54,6 +51,19 @@ a:hover {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #00000022;
+  background-color: #ffffff22;
   border-radius: 10px;
+}
+
+.pulseElem {
+  animation: pulse 1s ease infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    background-color: rgb(40, 40, 40);
+  }
+  to {
+    background-color: rgb(71, 71, 71);
+  }
 }

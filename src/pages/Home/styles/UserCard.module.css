@@ -1,12 +1,12 @@
 .container {
   display: flex;
   flex: 5;
-  padding: 0.5rem;
+  padding: 0.5rem 2rem;
   align-items: center;
   border-radius: 1rem;
   width: 100%;
   justify-content: center;
-  gap: 0.5rem;
+  gap: 2rem;
   background: rgb(96, 33, 255);
   background: linear-gradient(
     135deg,
@@ -18,7 +18,7 @@
 .banner {
   overflow: hidden;
   height: 200px;
-  flex: 0 1 30%;
+  flex-shrink: 0;
 }
 
 .banner img {

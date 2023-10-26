@@ -35,7 +35,7 @@ const fetchWeather = async () => {
 
 const fetchNews = async () => {
   let response = await fetch(
-    `https://newsapi.org/v2/top-headlines?q=technology&apiKey=${
+    `https://newsapi.org/v2/top-headlines?q=cat&apiKey=${
       import.meta.env.VITE_NEWS_API_KEY
     }`
   );
@@ -54,6 +54,7 @@ const fetchNews = async () => {
   }
 
   let data = await response.json();
+  console.log(data);
 
   return data.articles;
 };

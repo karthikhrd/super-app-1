@@ -10,7 +10,7 @@
 
 .image {
   height: 55%;
-  animation: pulse 1s ease infinite alternate;
+  composes: pulseElem from global;
 }
 
 .textContainer {
@@ -21,14 +21,5 @@
   margin-bottom: 1rem;
   height: 20px;
   border-radius: 10px;
-  animation: pulse 1s ease infinite alternate;
-}
-
-@keyframes pulse {
-  from {
-    background-color: rgb(40, 40, 40);
-  }
-  to {
-    background-color: rgb(71, 71, 71);
-  }
+  composes: pulseElem from global;
 }

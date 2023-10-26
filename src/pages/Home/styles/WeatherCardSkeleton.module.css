@@ -38,14 +38,5 @@
 }
 
 .pulseDiv {
-  animation: pulse 1s ease infinite alternate;
-}
-
-@keyframes pulse {
-  from {
-    background-color: rgb(40, 40, 40);
-  }
-  to {
-    background-color: rgb(71, 71, 71);
-  }
+  composes: pulseElem from global;
 }
