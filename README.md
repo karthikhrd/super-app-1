@@ -1,8 +1,51 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Super App
 
-Currently, two official plugins are available:
+React capstone project from cuvette react module, intialized with vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Demo
+
+https://super-app-2a3e0.web.app/
+
+
+## Screenshots
+
+![Login Screen](./public/signup.png)
+![Select category](./public/selectCategory.png)
+![Dashboard](./public/dashboard.png)
+![Browse selected](./public/browse.png)
+
+
+## Built with
+
+* React
+* React router dom v6
+* Vite
+* Valnilla css
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Brav3Trav3l3r/super-app
+```
+
+Go to the project directory
+
+```bash
+  cd super-app
+```
+
+Install dependencies
+
+```bash
+  npm i
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
