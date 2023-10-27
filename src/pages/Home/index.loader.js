@@ -15,7 +15,7 @@ export const loader = async () => {
 
 const fetchWeather = async () => {
   let response = await fetch(
-    `http://api.weatherapi.com/v1/current.json?q=wani&key=${
+    `http://api.weatherapi.com/v1/current.json?q=new-york&key=${
       import.meta.env.VITE_WEATHER_API_KEY
     }`
   );
@@ -54,7 +54,6 @@ const fetchNews = async () => {
   }
 
   let data = await response.json();
-  console.log(data);
 
   return data.articles;
 };

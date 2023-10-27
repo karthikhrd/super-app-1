@@ -15,6 +15,7 @@ https://super-app-2a3e0.web.app/
 ![Select category](./public/selectCategory.png)
 ![Dashboard](./public/dashboard.png)
 ![Browse selected](./public/browse.png)
+![Error page](./public/error.jpg)
 
 
 ## Built with
