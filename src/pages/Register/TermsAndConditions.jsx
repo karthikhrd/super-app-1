@@ -1,6 +1,6 @@
 import { Text } from "../../components/ui";
-import styles from "./styles/TermsAndConditions.module.css";
 import { PRIMARY_COLOR, NEUTRAL_COLOR } from "../../constants.js";
+import styles from "./styles/TermsAndConditions.module.css";
 
 export default function TermsAndConditions() {
   return (

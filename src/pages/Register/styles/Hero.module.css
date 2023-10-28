@@ -11,8 +11,7 @@
 }
 
 .heroContent {
-  padding: 0 40px;
+  padding: 5%;
   position: absolute;
-  bottom: 10%;
-  z-index: 10;
+  bottom: 0;
 }

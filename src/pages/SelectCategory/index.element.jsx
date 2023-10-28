@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Button } from "../../components/ui";
+import { useNavigate } from "react-router-dom";
 import { categories } from "../../data/categories";
+import { Button } from "../../components/ui";
 import Category from "./Category";
 import PageTitle from "./PageTitle";
 import SelectedCategories from "./SelectedCategories";
 import styles from "./styles/index.module.css";
-import { useNavigate } from "react-router-dom";
 
 export default function SelectCategoryPage() {
   const [selectedCategories, setSelectedCategories] = useState([]);

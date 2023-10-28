@@ -1,12 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/RootLayout";
-import ErrorPage from "./pages/ErrorPage";
-import RegisterPage from "./pages/Register/index.jsx";
 import HomePage from "./pages/Home/index.element.jsx";
+import RegisterPage from "./pages/Register/index.jsx";
+import ErrorPage from "./pages/ErrorPage";
 import SelectCategoryPage from "./pages/SelectCategory/index.element";
-import { loader as selectPageLoader } from "./pages/SelectCategory/index.loader";
-import { loader as homePageLoader } from "./pages/Home/index.loader";
 import EntertainmentPage from "./pages/Entertainment/index.element";
+import { loader as homePageLoader } from "./pages/Home/index.loader";
+import { loader as selectPageLoader } from "./pages/SelectCategory/index.loader";
 import { loader as entertainmentPageLoader } from "./pages/Entertainment/index.loader";
 
 const router = createBrowserRouter([

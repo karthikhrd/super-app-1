@@ -1,8 +1,8 @@
+import PropTypes from "prop-types";
 import { Circle } from "rc-progress";
+import bellGif from "../../assets/bell-gif.gif";
 import { Image, Text } from "../../components/ui";
 import styles from "./styles/Timer.module.css";
-import PropTypes from "prop-types";
-import bellGif from "../../assets/bell-gif.gif";
 
 export default function Timer({
   count,

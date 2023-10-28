@@ -1,6 +1,5 @@
 import logo from "../../assets/super-app-logo.png";
-import { Image } from "../../components/ui";
-import Text from "../../components/ui/Text";
+import { Image, Text } from "../../components/ui";
 import styles from "./styles/FormTitle.module.css";
 
 export default function FormTitle() {

@@ -1,10 +1,10 @@
 .container {
   height: 100%;
   flex: 1;
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border-radius: 1rem;
 }
 
 .card {
@@ -16,8 +16,8 @@
 .info {
   position: absolute;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.612);
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.612);
   padding: 1rem;
 }
 

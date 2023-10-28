@@ -1,8 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/super-app-logo.png";
 import profile from "../../assets/profile.png";
 import { Image } from "../../components/ui";
 import styles from "./styles/Navigation.module.css";
-import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
   const navigate = useNavigate();

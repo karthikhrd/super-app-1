@@ -1,7 +1,6 @@
-import styles from "./styles/Contents.module.css";
-// import { movies } from "../../data/movies";
-import Category from "./Category";
 import { useLoaderData } from "react-router-dom";
+import Category from "./Category";
+import styles from "./styles/Contents.module.css";
 
 export default function Contents() {
   const categories = useLoaderData();

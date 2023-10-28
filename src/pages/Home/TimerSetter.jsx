@@ -23,13 +23,13 @@ export default function TimerSetter({
       <table>
         <tbody>
           <Headings />
-          <Incremnters
+          <Incrementers
             isCounting={isCounting}
             isRinging={isRinging}
             dispatch={dispatch}
           />
           <Numbers time={time} />
-          <Decremnters
+          <Decrementers
             isCounting={isCounting}
             isRinging={isRinging}
             dispatch={dispatch}
@@ -67,7 +67,7 @@ const Headings = () => {
   );
 };
 
-const Incremnters = ({ isCounting, isRinging, dispatch }) => {
+const Incrementers = ({ isCounting, isRinging, dispatch }) => {
   return (
     <tr>
       <td>
@@ -150,7 +150,7 @@ const Numbers = ({ time }) => {
   );
 };
 
-const Decremnters = ({ isCounting, isRinging, dispatch }) => {
+const Decrementers = ({ isCounting, isRinging, dispatch }) => {
   return (
     <tr>
       <td>

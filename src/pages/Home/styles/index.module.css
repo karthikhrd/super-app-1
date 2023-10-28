@@ -19,13 +19,13 @@
 .topComponents {
   display: flex;
   gap: 2vw;
-  height: 60%; /*TODO height of components*/
+  height: 60%;
 }
 
 .userAndWeather {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /*TODO align */
+  justify-content: space-between;
   flex: 5;
   gap: 1rem;
 }

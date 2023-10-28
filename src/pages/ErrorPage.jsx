@@ -1,10 +1,11 @@
-import { Text, Image } from "../components/ui/index.js";
-import styles from "./styles/ErrorPage.module.css";
+import { Link, useRouteError } from "react-router-dom";
 import starrySky from "../assets/starry-sky.jpg";
 import moonGlow from "../assets/moon-glow.png";
 import rocket from "../assets/rocket.png";
-import { Link, useRouteError } from "react-router-dom";
+import { Text, Image } from "../components/ui/index.js";
 import { ERROR_COLOR } from "../constants.js";
+import styles from "./styles/ErrorPage.module.css";
+
 export default function ErrorPage() {
   const error = useRouteError();
   console.log(error);

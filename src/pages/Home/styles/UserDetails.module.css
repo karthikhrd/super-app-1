@@ -13,6 +13,6 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
-  max-height: 5.7rem; /* TODO: This looks ugly  */
   overflow-y: auto;
+  max-height: 5.2rem ;
 }

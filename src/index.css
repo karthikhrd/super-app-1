@@ -4,6 +4,8 @@
   font-weight: 400;
 
   --primary-text: rgba(255, 255, 255, 0.87);
+  --dark-text: rgba(0, 0, 0, 0.95);
+  
   --primary: #72db73;
   --primary-focus: #6cf36e;
   --secondary: #148a08;
@@ -12,7 +14,6 @@
   --neutral-focus: #393939;
   --error: #ff7373;
   --error-focus: #ff8585;
-  --dark-text: rgba(0, 0, 0, 0.95);
 
   color-scheme: light dark;
   color: var(--primary-text);

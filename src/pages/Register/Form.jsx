@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
-import styles from "./styles/Form.module.css";
-import { useInputValidation } from "./useInputValidation.js";
-import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import { useInputValidation } from "../../hooks/useInputValidation.js";
 import FormCheckbox from "../../components/form/FormCheckbox";
 import FormInput from "../../components/form/FormInput";
 import { Button } from "../../components/ui/index.js";
@@ -12,6 +11,7 @@ import {
   nameIsValid,
   usernameIsValid,
 } from "../../utils/inputValidation";
+import styles from "./styles/Form.module.css";
 
 export default function Form() {
   const [formDidSubmit, setFormDidSubmit] = useState(false);
@@ -111,7 +111,7 @@ export default function Form() {
             onChange={handleNameInputChange}
             onBlur={handleNameIsTouched}
             isInvalid={isInvalidName}
-            invalidMessage="Name cannot be empty."
+            invalidMessage="Please enter a valid name."
           />
           <FormInput
             placeholder="Username"

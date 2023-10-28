@@ -54,6 +54,5 @@ const fetchNews = async () => {
   }
 
   let data = await response.json();
-
   return data.articles;
 };

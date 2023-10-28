@@ -1,3 +1,5 @@
+// takes a dateString ("2023-09-26T13:00:00Z") as input and returns { date: '26-09-2023', time: '13:00' }
+
 export const formatDateString = (dateString) => {
   return {
     date:

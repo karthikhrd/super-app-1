@@ -1,4 +1,4 @@
-import Fallback from "../../components/ui/Fallback";
+import {Fallback} from "../../components/ui";
 import styles from "./styles/CategoryFallback.module.css";
 
 export default function CategoryFallback({ error }) {

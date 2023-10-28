@@ -1,7 +1,7 @@
 import { Droplets, Thermometer, Wind } from "lucide-react";
 import { Text, Image } from "../../components/ui";
-import styles from "./styles/WeatherCard.module.css";
 import Divider from "../../components/ui/Divider";
+import styles from "./styles/WeatherCard.module.css";
 
 export default function WeatherCard({ weather }) {
   const timeArr = weather.location.localtime.split(" ");

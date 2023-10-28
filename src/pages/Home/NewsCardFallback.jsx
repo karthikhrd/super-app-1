@@ -1,5 +1,5 @@
 import { useAsyncError } from "react-router-dom";
-import Fallback from "../../components/ui/Fallback";
+import { Fallback } from "../../components/ui";
 import styles from "./styles/NewsCardFallback.module.css";
 
 export default function NewsCardFallback() {

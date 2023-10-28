@@ -1,9 +1,9 @@
-import { Image, Text } from "../../components/ui";
-import styles from "./styles/Categoty.module.css";
-import { NEUTRAL_COLOR } from "../../constants";
 import { useCallback, useEffect, useState } from "react";
+import { NEUTRAL_COLOR } from "../../constants";
+import { Image, Text } from "../../components/ui";
 import CategorySkeleton from "./CategorySkeleton";
 import CategoryFallback from "./CategoryFallback";
+import styles from "./styles/Categoty.module.css";
 
 export default function Category({ genre }) {
   const [data, setData] = useState(null);
@@ -14,13 +14,16 @@ export default function Category({ genre }) {
 
   const fetchMovies = useCallback(async () => {
     const response = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?with_genres=${id}&api_key=c92a1812d52b9947ab6ba910234c503d`
+      `https://api.themoviedb.org/3/discover/movie?with_genres=${id}&api_key=${
+        import.meta.env.VITE_TMDB_API_KEY
+      }`
     );
 
     if (!response.ok) {
       throw new Error("Couldn't fetch movies");
     }
 
+    // just to show loading skeleton
     await new Promise((resolve) => {
       setTimeout(resolve, 1000);
     });
