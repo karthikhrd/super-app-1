@@ -23,10 +23,10 @@ https:///
 * React
 * React router dom v6
 * Vite
-* Valnilla css
-## Run Locally
 
-Clone the project
+
+
+Clone the this  project
 
 ```bash
   git clone https://github.com/karthikhrd/super-app-1
@@ -38,13 +38,13 @@ Go to the project directory
   cd super-app
 ```
 
-Install dependencies
+Install dependencies for super app
 
 ```bash
   npm i
 ```
 
-Start the server
+Start the super app on the  server run the following command 
 
 ```bash
   npm run dev
