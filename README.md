@@ -1,7 +1,7 @@
 
 # Super App
 
-React capstone project from cuvette react module, intialized with vite.
+ This is React capstone project from cuvette  batch jan 29 , intialized with vite.
 
 
 ## Demo
@@ -11,10 +11,10 @@ https:///
 
 ## Screenshots
 
-![Login Screen](./public/signup.png)
+![Login Screen](./public/sign%20up%20page.png)
 ![Select category](./public/selectCategory.png)
 ![Dashboard](./public/dashboard.png)
-![Browse selected](./public/browse.png)
+![Browse selected](public/browseresults.png)
 ![Error page](./public/error.jpg)
 
 
@@ -26,27 +26,19 @@ https:///
 
 
 
-Clone the this  project
-
 ```bash
   git clone https://github.com/karthikhrd/super-app-1
 ```
 
-Go to the project directory
 
-```bash
-  cd super-app
-```
-
-Install dependencies for super app
+Install dependencies for this proj jan 29  2024
 
 ```bash
   npm i
 ```
 
-Start the super app on the  server run the following command 
+ TO Start the super app on the server
 
 ```bash
   npm run dev
 ```
-
