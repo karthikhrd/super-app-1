@@ -29,7 +29,7 @@ https://super-app-2a3e0.web.app/
 Clone the project
 
 ```bash
-  git clone https://github.com/Brav3Trav3l3r/super-app
+  git clone https://github.com/karthikhrd/super-app-1
 ```
 
 Go to the project directory
